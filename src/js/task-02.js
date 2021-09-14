@@ -17,3 +17,5 @@ const items = ingredients.map(ingredient => {
 const list = document.querySelector('#ingredients');
 
 list.append(...items)
+
+console.log(list)
