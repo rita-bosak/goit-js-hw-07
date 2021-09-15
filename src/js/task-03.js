@@ -13,23 +13,14 @@ const images = [
   },
 ];
 
-const markupGallery = images.map(image => {
-  
-  const itemEl = document.createElement('li');
-  
-  const imageEl = document.createElement(`<img class = "image-gallery" src = ${image.url} alt = ${image.alt}></img>`);
+const markupGallery = images.map(image => 
+  `<li><img class = "image-gallery; src = ${image.url}"; alt = ${image.alt}/></li>`;
+);
 
-
-  itemEl.appendChild(imageEl);
-
-  return itemEl;
-  
-});
-
-console.log()
+console.log(markupGallery)
 
 const listGallery = document.querySelector('#gallery');
 
-listGallery.insertAdjacentElement("afterbegin", ...imagesEl);
+// listGallery.insertAdjacentElement("afterbegin", markupGallery);
 
-// console.log(listGallery)
+console.log(listGallery)
