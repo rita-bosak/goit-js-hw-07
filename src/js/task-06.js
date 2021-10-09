@@ -2,10 +2,10 @@ const validationInput = document.querySelector('#validation-input');
 
 const handleValidLength = () => {
     const currentInputLength = validationInput.value.length;
-
+    const validInputLength = Number(validationInput.getAttribute("data-length"));
     const inputClass = validationInput.classList;
 
-    if (currentInputLength === Number(validationInput.getAttribute("data-length"))){
+    if (currentInputLength === validInputLength){
 
         return inputClass.contains("invalid") ? 
         inputClass.replace("invalid", "valid") : 
