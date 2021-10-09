@@ -12,4 +12,3 @@ const handleNameOutput = () => {
 
 nameInput.addEventListener('input', handleNameOutput);
 
-console.log(nameInput.value);
