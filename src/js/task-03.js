@@ -20,9 +20,19 @@ const listGallery = document.querySelector('#gallery');
 
 listGallery.insertAdjacentHTML("afterbegin", markupGallery);
 
-listGallery.style.listStyle = "none"; 
-listGallery.style.margin = "0 auto";
-listGallery.style.padding = "0 20px";
-listGallery.style.display = "flex";
-listGallery.style.alignItems = "center";
-listGallery.style.justifyContent = "space-around";
+
+listGallery.classList.add('gallery')
+
+const galleryStyle = 
+`.gallery {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+};`;
+
+const style = document.querySelector('style');
+
+style.insertAdjacentHTML("beforeend", galleryStyle);
