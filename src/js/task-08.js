@@ -25,7 +25,8 @@ function createBoxes(amount) {
         style.insertAdjacentHTML('beforeend', boxStyle);
     };
     
-    return divBoxes;
+    return inputNumber.value = null;
+    
 };
 
 function destroyBoxes() {
