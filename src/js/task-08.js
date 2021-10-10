@@ -5,7 +5,8 @@ const divBoxes = document.querySelector('#boxes');
 const style = document.querySelector('style');
 
 function createBoxes(amount) {
-
+    amount = Number(inputNumber.value);
+    
     for (let i = 1; i <= amount; i += 1){
 
         const collectionEl = document.createElement('div');
@@ -27,16 +28,9 @@ function createBoxes(amount) {
     return divBoxes;
 };
 
-const handleBoxesRender = () => {
-    const amount = Number(inputNumber.value);
-    return createBoxes(amount);
-
-};
-
-const handleDestroyBoxes = () => {
 function destroyBoxes() {
     return divBoxes.innerHTML = '';
-}
 };
-btnRender.addEventListener('click', handleBoxesRender);
-btnDestroy.addEventListener('click', handleDestroyBoxes);
+
+btnRender.addEventListener('click', createBoxes);
+btnDestroy.addEventListener('click', destroyBoxes);
