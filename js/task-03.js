@@ -1,3 +1,5 @@
+'use strict';
+
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -13,18 +15,19 @@ const images = [
   },
 ];
 
-const markupGallery = images.map((image) =>
-{ return `<li><img src = ${image.url}; alt = ${image.alt}; width = '400'; height ='400'/></li>`;}).join('');
+const markupGallery = images
+  .map((image) => {
+    return `<li><img src = ${image.url}; alt = ${image.alt}; width = '400'; height ='400'/></li>`;
+  })
+  .join('');
 
 const listGallery = document.querySelector('#gallery');
 
-listGallery.insertAdjacentHTML("afterbegin", markupGallery);
+listGallery.insertAdjacentHTML('afterbegin', markupGallery);
 
+listGallery.classList.add('gallery');
 
-listGallery.classList.add('gallery')
-
-const galleryStyle = 
-`.gallery {
+const galleryStyle = `.gallery {
   list-style: none;
   margin: 0 auto;
   padding: 0 20px;
@@ -35,4 +38,4 @@ const galleryStyle =
 
 const style = document.querySelector('style');
 
-style.insertAdjacentHTML("beforeend", galleryStyle);
+style.insertAdjacentHTML('beforeend', galleryStyle);
