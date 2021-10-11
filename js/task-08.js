@@ -27,7 +27,7 @@ function createBoxes(amount) {
     boxesStyle.push(boxStyle);
   }
 
-  divBoxes.insertAdjacentHTML('afterbegin', boxesMarkup.join(' '));
+  divBoxes.innerHTML = boxesMarkup.join(' ');
 
   style.insertAdjacentHTML('beforeend', boxesStyle.join(' '));
 
@@ -39,7 +39,6 @@ function destroyBoxes() {
 }
 
 const handleBtnRender = () => {
-  divBoxes.innerHTML = '';
   const inputValue = Number(input.value);
   return createBoxes(inputValue);
 };
