@@ -1,18 +1,14 @@
 'use strict';
 
-const inputNumber = document.querySelector('input');
+const input = document.querySelector('input[type = "number"]');
 const btnRender = document.querySelector('button[data-action = "render"]');
 const btnDestroy = document.querySelector('button[data-action = "destroy"]');
 const divBoxes = document.querySelector('#boxes');
 const style = document.querySelector('style');
 
 function createBoxes(amount) {
-  amount = Number(inputNumber.value);
-
   for (let i = 1; i <= amount; i += 1) {
-    const collectionEl = document.createElement('div');
-
-    divBoxes.appendChild(collectionEl);
+    const collectionEl[i] = document.createElement('div');
 
     collectionEl.classList.add(`box-${[i]}`);
 
@@ -26,13 +22,18 @@ function createBoxes(amount) {
 
     style.insertAdjacentHTML('beforeend', boxStyle);
   }
-
-  return (inputNumber.value = '');
+  divBoxes.appendChild(collectionEl);
+  return (input.value = '');
 }
 
 function destroyBoxes() {
   return (divBoxes.innerHTML = '');
 }
 
-btnRender.addEventListener('click', createBoxes);
+const handleBtnRender = () => {
+  const inputValue = Number(input.value);
+  return createBoxes(inputValue);
+};
+
+btnRender.addEventListener('click', handleBtnRender);
 btnDestroy.addEventListener('click', destroyBoxes);
