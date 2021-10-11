@@ -7,22 +7,30 @@ const divBoxes = document.querySelector('#boxes');
 const style = document.querySelector('style');
 
 function createBoxes(amount) {
+  const boxesMarkup = [];
+  const boxesStyle = [];
+
   for (let i = 1; i <= amount; i += 1) {
-    const collectionEl[i] = document.createElement('div');
+    const boxMarkup = `<div class="box-${[i]}"></div>`;
 
-    collectionEl.classList.add(`box-${[i]}`);
+    boxesMarkup.push(boxMarkup);
 
-    const boxStyle = `.box-${[i]}{
+    const boxStyle = `
+    .box-${[i]} {
             background-color: rgb(${Math.random() * 255 + 1}, ${
       Math.random() * 255 + 1
     }, ${Math.random() * 255 + 1});
             width: ${[i] * 10 + 20}px;
             height: ${[i] * 10 + 20}px;
-        }`;
+    }`;
 
-    style.insertAdjacentHTML('beforeend', boxStyle);
+    boxesStyle.push(boxStyle);
   }
-  divBoxes.appendChild(collectionEl);
+
+  divBoxes.insertAdjacentHTML('afterbegin', boxesMarkup.join(' '));
+
+  style.insertAdjacentHTML('beforeend', boxesStyle.join(' '));
+
   return (input.value = '');
 }
 
@@ -31,6 +39,7 @@ function destroyBoxes() {
 }
 
 const handleBtnRender = () => {
+  divBoxes.innerHTML = '';
   const inputValue = Number(input.value);
   return createBoxes(inputValue);
 };
